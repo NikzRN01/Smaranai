@@ -1,67 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import DoodleButton from '@/components/DoodleButton';
-import DoodleDecoration from '@/components/DoodleDecoration';
-import { Flag } from 'lucide-react'; // Hindi icon
+import { Flag } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const HindiHeroSection = () => {
-  const navigate = useNavigate();
-
-  const scrollToTools = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const toolsSection = document.getElementById('hindi-tools-section');
-    toolsSection?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative py-12 md:py-20 overflow-hidden bg-background">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              <span className="block text-foreground">हिंदी सीखें</span>
-              <span className="bg-gradient-to-r from-kid-orange via-orange-500 to-red-500 bg-clip-text text-transparent">
-                मज़ेदार तरीके से!
-              </span>
-            </h1>
-            <p className="text-xl mb-8 text-muted-foreground">
-              इंटरैक्टिव पाठों और एआई ट्यूटर की मदद से हिंदी भाषा में महारत हासिल करें।
-              (Master the Hindi language with interactive lessons and AI tutors.)
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <DoodleButton 
-                color="orange" 
-                size="lg" 
-                onClick={scrollToTools} 
-              >
-                साधन देखें (Explore Tools)
-              </DoodleButton>
-            </div>
-          </div>
-          <div className="md:w-1/2 relative flex justify-center">
-            <div className="relative w-3/4 md:w-full max-w-md">
-              <img 
-                alt="Hindi learning illustration" 
-                src="/lovable-uploads/43cda320-2d3f-46eb-b10e-2bc9ce6e1854.png" // Updated image source
-                className="rounded-3xl shadow-lg object-contain aspect-square"
-              /> 
-              <div className="absolute -top-6 -right-6">
-                <DoodleDecoration type="star" color="yellow" size="lg" />
-              </div>
-              {/* Changed decoration to heart */}
-              <div className="absolute -bottom-6 -left-6">
-                <DoodleDecoration type="heart" color="red" size="lg" /> 
-              </div>
-            </div>
-          </div>
+    <section className={cn(
+      "relative overflow-hidden py-24 md:py-32 lg:py-40 bg-gradient-to-br from-purple-900 to-blue-900",
+    )}>
+      <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center overflow-hidden">
+        <div className="absolute -top-48 -left-48 w-96 h-96 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -bottom-48 -right-48 w-96 h-96 bg-gradient-to-br from-pink-600 to-purple-600 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-80 h-80 bg-gradient-to-tr from-blue-600 to-pink-600 rounded-full opacity-20 blur-3xl"></div>
+      </div>
+      <div className="container mx-auto px-4 relative z-10 flex items-center justify-between text-white">
+        <div className="text-left z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-shadow-lg">
+            Dive into Hindi
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl text-white max-w-2xl text-shadow-lg">
+            Unlock the beauty and complexity of the Hindi language. Explore grammar, literature, conversation, and more with our expert-crafted tools and resources.
+          </p>
         </div>
-      </div>
-      
-      <div className="absolute top-20 left-10 opacity-10 dark:opacity-20 -z-10">
-        <DoodleDecoration type="dots" color="orange" size="xl" /> 
-      </div>
-      <div className="absolute bottom-20 right-10 opacity-10 dark:opacity-20 -z-10">
-        <DoodleDecoration type="swirl" color="red" size="xl" />
+        <div className="text-white hidden md:block z-10 text-shadow-lg">
+          <Flag size={128} className="opacity-80" />
+        </div>
       </div>
     </section>
   );

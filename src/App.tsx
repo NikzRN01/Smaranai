@@ -5,7 +5,6 @@ import { Toaster } from 'sonner';
 
 // Components
 import ErrorBoundary from './components/ErrorBoundary';
-import { ThemeProvider } from './components/ThemeProvider';
 import { ScrollToTop } from './components/ScrollToTop';
 
 // Routes
@@ -19,15 +18,13 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-      <ErrorBoundary>
-        <Router>
-          <ScrollToTop />
-          <Toaster richColors position="top-center" />
-          <AppRoutes />
-        </Router>
-      </ErrorBoundary>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <Router>
+        <ScrollToTop />
+        <Toaster richColors position="top-center" />
+        <AppRoutes />
+      </Router>
+    </ErrorBoundary>
   );
 }
 

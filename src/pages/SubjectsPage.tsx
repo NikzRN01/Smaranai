@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, BookText, Atom, GraduationCap, Globe, Flag } from 'lucide-react';
+import { BookOpen, BookText, GraduationCap, Flag, Library } from 'lucide-react';
 import DoodleCard from '@/components/DoodleCard';
 
 const SubjectsPage = () => {
@@ -22,24 +22,15 @@ const SubjectsPage = () => {
         // Changed: Navigate to the new Gujarati landing page
         navigate('/gujarati'); 
         break;
-      case 'Science':
-        console.warn('Navigation for Science not implemented yet.');
-        // navigate('/science');
-        break;
-      case 'Social Science':
-        console.warn('Navigation for Social Science not implemented yet.');
-        // navigate('/social-science');
-        break;
       default:
         console.log(`No specific navigation defined for ${subjectName}`);
+        break;
     }
   };
 
-  const subjects = [
+  const subjects = [ // removing science subject
     { name: 'Mathematics', icon: <GraduationCap className="w-8 h-8" />, color: 'blue', description: 'Explore numbers...' },
-    { name: 'English', icon: <BookText className="w-8 h-8" />, color: 'green', description: 'Master language skills...' },
-    { name: 'Science', icon: <Atom className="w-8 h-8" />, color: 'purple', description: 'Discover the natural world...' },
-    { name: 'Social Science', icon: <Globe className="w-8 h-8" />, color: 'yellow', description: 'Learn about history...' },
+    { name: 'English', icon: <BookText className="w-8 h-8" />, color: 'green', description: 'Master language skills...' },    
     { name: 'Hindi', icon: <Flag className="w-8 h-8" />, color: 'orange', description: 'Develop Hindi language skills...' },
     { name: 'Gujarati', icon: <BookOpen className="w-8 h-8" />, color: 'red', description: 'Learn Gujarati...' }
   ];
