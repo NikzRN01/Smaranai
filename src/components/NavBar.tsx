@@ -3,18 +3,15 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import AuthButton from './AuthButton';
-import { ThemeToggle } from './ThemeToggle';
 import { 
   Menu, 
   Home, 
   BookText, 
   Image, 
-  Mic, 
-  Bot, 
   GraduationCap, 
   CalendarDays, 
   Timer, 
-  BookOpen, 
+  BookOpen,
   UserRound, 
   History 
 } from 'lucide-react';
@@ -57,7 +54,7 @@ const NavBar = () => {
           <SheetContent 
             side="left" 
             className={`w-[300px] ${sidebarBg} ${sidebarText} p-0 border-l ${sidebarBorder}`}
-          >
+          ><div className='flex flex-col h-full'>
             <nav className="flex flex-col h-full">
               {/* Using restored sidebar header styles */} 
               <div className={`p-4 border-b ${sidebarHeaderBorder}`}>
@@ -112,27 +109,6 @@ const NavBar = () => {
                     <span className="text-sm font-medium text-center text-foreground">Story Images</span>
                   </button>
                   <button 
-                     onClick={handleNavigation("/spoken-english")} 
-                     className="card-doodle flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-transparent hover:bg-kid-red/10 dark:hover:bg-kid-red/30 transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 border-dashed border-kid-red/50 h-24"
-                  >
-                    <Mic size={24} className="text-kid-red" />
-                    <span className="text-sm font-medium text-center text-foreground">Spoken English</span>
-                  </button>
-                  <button 
-                     onClick={handleNavigation("/voice-bot")} 
-                     className="card-doodle flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-transparent hover:bg-kid-purple/10 dark:hover:bg-kid-purple/30 transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 border-dashed border-kid-purple/50 h-24"
-                  >
-                    <Bot size={24} className="text-kid-purple" />
-                    <span className="text-sm font-medium text-center text-foreground">Voice Bot</span>
-                  </button>
-                  <button 
-                     onClick={handleNavigation("/socratic-tutor")} 
-                     className="card-doodle flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-transparent hover:bg-kid-blue/10 dark:hover:bg-kid-blue/30 transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 border-dashed border-kid-blue/50 h-24"
-                  >
-                    <GraduationCap size={24} className="text-kid-blue" />
-                    <span className="text-sm font-medium text-center text-foreground">Socratic Tutor</span>
-                  </button>
-                  <button 
                      onClick={handleNavigation("/study-planner")} 
                      className="card-doodle flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-transparent hover:bg-kid-pink/10 dark:hover:bg-kid-pink/30 transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 border-dashed border-kid-pink/50 h-24"
                   >
@@ -173,12 +149,12 @@ const NavBar = () => {
                 </div>
               </div>
             </nav>
-          </SheetContent>
+            </div></SheetContent>
         </Sheet>
         
-        {/* Center Brand Link - STILL points to /subjects */}
-        <div className="flex-1 flex justify-center md:justify-start">
-          <Link to="/subjects" className="text-2xl font-bold flex items-center gap-1 px-[19px]">
+        {/* Center Brand Link  */}
+        <div className="flex-1 flex justify-center">
+          <Link to="/subjects" className="text-3xl font-bold flex items-center gap-1">
              <span className="bg-gradient-to-r from-kid-blue via-kid-purple to-kid-red bg-clip-text text-transparent">
               Smaran.ai
             </span>
@@ -187,7 +163,6 @@ const NavBar = () => {
         
         {/* Right Side Controls */} 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <AuthButton />
         </div>
       </div>
